@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var _lrscript = document.createElement('script');
+        _lrscript.type = 'text/javascript';
+        _lrscript.defer = _lrscript.async = true;
+        _lrscript.src = '//' + ((null || location.host).split(':')[0]) + ':35729/livereload.js?';
+        document.body.appendChild(_lrscript);
+    });
+</script>
+
+<head>
+    <title>DEV - TITLE</title>
+    <!-- open graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content=" ">
+    <meta property="og:image" content="./assets/meta/">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="">
+    <meta property="og:description" content="">
+
+    <!-- twitter -->
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="./assets/meta/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- favicon -->
+    <link rel="icon" type="img/png" sizes="16x16" href="./assets/meta/sm.png">
+    <link rel="icon" type="img/png" sizes="32x32" href="">
+    <link rel="icon" type="img/png" sizes="144x144" href="">
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- plyr video player -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- simpleBar -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" /> -->
+
+    <!-- tippy -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- flatpicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
+
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body class='gray-page'>
+    <section class="extra-sergvice-popup" style="display: none;">
+        <div class="extra-sergvice-popup__content">
+            <div class="heading">
+                <h4>Eco-Friendly Cleaning </h4>
+                <button class='extra-service-popup-close'>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.11091 4.11174L8 8.00083M8 8.00083L11.8891 11.8899M8 8.00083L11.8891 4.11174M8 8.00083L4.11091 11.8899"
+                            stroke="#0F1D4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </button>
+            </div>
+
+            <p>We use only safe, non-toxic, eco-conscious products — especially important if there are children, allergy
+                sufferers, or pets in your home.</p>
+
+            <button class='add-extraserrvices'>Add extra sevice</button>
+        </div>
+    </section>
+
+    <section class='callback-modal' style="display: none;">
+        <div class="callback-modal__content">
+            <div class="heading">
+                <h4>Callback Request</h4>
+                <button class='callback-modal-close'>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.11091 4.11174L8 8.00083M8 8.00083L11.8891 11.8899M8 8.00083L11.8891 4.11174M8 8.00083L4.11091 11.8899"
+                            stroke="#0F1D4E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </button>
+            </div>
+
+            <form action="">
+                <div class='input__box '>
+                    <label for="callbackName" class='input-container'>
+                        <div class="name">Name</div>
+                        <input type="text" id="callbackName" placeholder="type your Name" data-input-type='text'
+                            required>
+                    </label>
+                    <p class="error" style="display: none;">*Error</p>
+                </div>
+
+                <div class='input__box '>
+                    <label for="callbackPhone" class='input-container'>
+                        <div class="name">Phone</div>
+                        <input type="text" id="callbackPhone" placeholder="type your Phone" data-input-type='phone'
+                            required>
+                    </label>
+                    <p class="error" style="display: none;">*Error</p>
+                </div>
+
+                <button class='solid-link 
+     solid-link--large 
+     btn'>
+                    <div class="text tsb">Submit</div>
+
+                    <div class="icon"><svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                fill="#0F1D4E" />
+                        </svg>
+                    </div>
+
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <header class="
+    header 
+     header__ 
+     header__dark ">
+        <div class="parrent">
+            <div class="
+            header__border-container
+             header__border-container__bg ">
+                <div class="header__container">
+                    <div class="header__logo__container">
+                        <div class="desktop">
+                            <a href="index.html" class="logo">CHISTO</a>
+                        </div>
+                        <div class="mobile">
+                            <button class='' data-open-menu>
+                                <div class='menu-btn--ui'>
+                                    <div class='icon'></div>
+                                    <div class='icon'></div>
+                                    <div class='icon'></div>
+                                    <div class='icon'></div>
+                                </div>
+                                <div class="logo">CHISTO</div>
+                            </button>
+                        </div>
+                        <div class="splitter"></div>
+                        <div class="city tm">Edmonton</div>
+                    </div>
+
+                    <nav>
+                        <ul>
+                            <li>
+                                <button class='open-menu' data-open-menu>
+                                    <div class='menu-btn--ui'>
+                                        <div class='icon'></div>
+                                        <div class='icon'></div>
+                                        <div class='icon'></div>
+                                        <div class='icon'></div>
+                                    </div>
+                                    <div class="text tm">Services</div>
+                                </button>
+                            </li>
+                            <li><a href="" class='tm active'>Pricing</a></li>
+                            <li><a href="" class='tm'>About us</a></li>
+                            <li><a href="" class='tm'>Blog</a></li>
+                            <li><a href="" class='tm'>Contact</a></li>
+                        </ul>
+                    </nav>
+
+
+                    <div class="info__container">
+                        <a href="tel:+1 564 733 7012" class="number tm desktop">+1 564 733 7012</a>
+                        <a href="tel:+1 564 733 7012" class="number mobile"><svg width="16" height="16"
+                                viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2.68267 6L2.66667 5.954C2.30667 4.92267 2 3.51333 2 2.66667C2 2.3 2.3 2 2.66667 2H4.66667C5.02029 2 5.35943 2.14048 5.60948 2.39052C5.85952 2.64057 6 2.97971 6 3.33333V4.66667C6 5.02029 5.85952 5.35943 5.60948 5.60948C5.35943 5.85952 5.02029 6 4.66667 6H4.10867C4.64678 7.32606 5.44544 8.5307 6.45737 9.54263C7.4693 10.5546 8.67394 11.3532 10 11.8913V11.3333C10 10.9797 10.1405 10.6406 10.3905 10.3905C10.6406 10.1405 10.9797 10 11.3333 10H12.6667C13.0203 10 13.3594 10.1405 13.6095 10.3905C13.8595 10.6406 14 10.9797 14 11.3333V13.3333C14 13.6333 13.6333 14 13.3333 14C12.1833 14 11.04 13.696 10 13.3333C6.59067 12.112 3.888 9.40933 2.68267 6Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+
+
+                        <a href="" class='solid-link 
+    
+     desktop'>
+                            <div class="text tsb">Book now</div>
+                            <div class="icon">
+                                <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                        fill="#0F1D4E" />
+                                </svg>
+
+                            </div>
+                        </a>
+
+                        <a href="" class='solid-link 
+    
+     mobile'>
+                            <div class="text tsb">Book</div>
+                            <div class="icon">
+                                <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                        fill="#0F1D4E" />
+                                </svg>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <section class='header-links-menu' style="display: none;">
+
+                <div class="header-links-menu__dropdown">
+
+                    <div class="header-links-menu__scrolled">
+
+                        <div class="header-links-menu__content">
+                            <div class="mobile-city">
+                                <div class="title tm">City:</div>
+                                <div class="name tm">Edmonton</div>
+                            </div>
+
+                            <nav class='mobile-navigation'>
+                                <p class='td'>for customers</p>
+                                <ul>
+                                    <li><a href="" class='tsb'>Home page</a></li>
+                                    <li><a href="" class='tsb'>Pricing</a></li>
+                                    <li><a href="" class='tsb'>About us</a></li>
+                                    <li><a href="" class='tsb'>Blog</a></li>
+                                    <li><a href="" class='tsb'>Contact</a></li>
+                                </ul>
+                            </nav>
+                            <a href="" class="image">
+                                <img src="assets/backgrounds/header.png" alt="">
+                                <div class="toner"></div>
+
+                                <div class="text">
+                                    <div class="with-icon">
+                                        <p class='tsb'>Extra services</p>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.81171 3C5.73263 3 5.65171 3.03357 5.59103 3.09873C5.46966 3.22905 5.46966 3.44229 5.59103 3.57261L9.74513 8.03307L5.65171 12.4284C5.53034 12.5587 5.53034 12.7719 5.65171 12.9023C5.77308 13.0326 5.97168 13.0326 6.09305 12.9023L10.409 8.27002C10.5303 8.1397 10.5303 7.92645 10.409 7.79613L6.0342 3.09873C5.97168 3.03159 5.89262 3 5.81171 3Z"
+                                                fill="#0F1D4E" stroke="#0F1D4E" />
+                                        </svg>
+
+                                    </div>
+
+                                    <div class="description">
+                                        <p class='ts'>Many of our clients love adding extra services for that perfect
+                                            finishing
+                                            touch!</p>
+                                    </div>
+                                </div>
+
+                            </a>
+                            <div class="list">
+                                <p class="td">Cleaning Services:</p>
+                                <nav>
+                                    <ul>
+                                        <li>
+                                            <a href="">
+                                                <h2>Residential</h2>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <h2>Move-in & Move-out</h2>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <h2>Commercial</h2>
+                                                <div class='popular td'>popular choice</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <h2>Post-construction</h2>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <h2>Carpet</h2>
+                                            </a>
+                                        <li>
+                                            <a href="">
+                                                <h2>Airbnb</h2>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <h2>Exterior</h2>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-book">
+                        <div class="btn__container">
+                            <a href="" class='solid-link 
+     solid-link--large 
+     mobile__btn_in_menu'>
+                                <div class="text tsb">Book a cleaning</div>
+                                <div class="icon">
+                                    <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                            fill="#0F1D4E" />
+                                    </svg>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </header>
+    <main>
+
+
+
+        <div class="big-form__wrapper">
+
+            <section class='big-form-grid'>
+                <div class="left">
+                    <section class="form-callback-message">
+                        <p>🕧 No time? We’ll take your booking over the phone — <b>just give us a call</b>.</p>
+                        <button class='callback-request'>Callback Request</button>
+                    </section>
+
+                </div>
+            </section>
+            <section class='big-form-grid'>
+                <div class="left">
+                    <section class="full-form">
+                        <form action="">
+
+                            <div class="full-form__block">
+                                <h4>Cleaning service</h4>
+                                <section class="form-dropdown">
+
+                                    <div class='dropdown-box'>
+                                        <button type="button" class='dropdown-container'>
+                                            <div class="name">Service</div>
+                                            <div class="fake-input first">
+                                                <div class="text">Select an option</div>
+                                                <div class="icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M13 5.81171C13 5.73263 12.9664 5.65171 12.9013 5.59103C12.771 5.46966 12.5577 5.46966 12.4274 5.59103L7.96693 9.74513L3.57163 5.65171C3.44131 5.53034 3.22806 5.53034 3.09774 5.65171C2.96742 5.77308 2.96742 5.97168 3.09774 6.09305L7.72998 10.409C7.8603 10.5303 8.07355 10.5303 8.20387 10.409L12.9013 6.0342C12.9684 5.97168 13 5.89262 13 5.81171Z"
+                                                            fill="#0F1D4E" stroke="#0F1D4E" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="cleaningService" placeholder="Select an option"
+                                                required class='error-class'>
+                                        </button>
+                                        <p class="error" style="display: none;">*Error</p>
+
+                                        <div class="dropdown__body" style="display: none;">
+                                            <button type="button" data-target="Residential">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Residential</div>
+                                            </button>
+                                            <button type="button" data-target="Move-in & Move-out">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Move-in & Move-out</div>
+                                            </button>
+                                            <button type="button" data-target="Commercial">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Commercial</div>
+                                            </button>
+                                            <button type="button" data-target="Post-construction">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Post-construction</div>
+                                            </button>
+                                            <button type="button" data-target="Carpet">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Carpet</div>
+                                            </button>
+                                            <button type="button" data-target="Airbnb">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Airbnb</div>
+                                            </button>
+                                            <button type="button" data-target="Exterior">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Exterior</div>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </section>
+                            </div>
+
+                            <div class="full-form__block">
+                                <h4>Cleaning type</h4>
+                                <section class="from-cleaning-service">
+                                    <label for="radio-regular" class='label'>
+                                        <div class="input">
+                                            <input type="radio" class='radio-input' id="radio-regular" checked
+                                                name="cleaning-type-radio">
+                                            <div class="custom-radio"></div>
+                                        </div>
+                                        <div class="text">
+                                            <p class="tsb">Regular</p>
+                                            <p>The optimal choice for weekly or biweekly home care</p>
+                                        </div>
+                                    </label>
+                                    <label for="radio-deep" class='label'>
+                                        <div class="input">
+                                            <input type="radio" class='radio-input' id="radio-deep" checked
+                                                name="cleaning-type-radio">
+                                            <div class="custom-radio"></div>
+                                        </div>
+                                        <div class="text">
+                                            <p class="tsb">Deep</p>
+                                            <p>The perfect package if it’s been a while since your last cleaning or you
+                                                need a thorough clean before the
+                                                holidays. We clean thoroughly, including hard-to-reach areas</p>
+                                        </div>
+                                    </label>
+                                </section>
+                            </div>
+
+
+
+                            <div class="full-form__block">
+                                <h4>Your apartment</h4>
+                                <section class="form-your-apartment">
+                                    <div class="rooms">
+                                        <div class="room__container">
+                                            <div class="item">
+                                                <button class='decrease' type="button"><svg width="16" height="16"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2.5 8H8H13.5" stroke="#0F1D4E" stroke-width="1.7"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                                <div class="value">
+                                                    <input type="number" value="1">
+                                                    <div class="number tsb">1</div>
+                                                    <p class="tm">Bedrooms </p>
+                                                </div>
+                                                <button class='increase' type="button"><svg width="16" height="16"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2.5 8H8M8 8H13.5M8 8V2.5M8 8V13.5" stroke="#0F1D4E"
+                                                            stroke-width="1.7" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="item">
+                                                <button class='decrease' type="button"><svg width="16" height="16"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2.5 8H8H13.5" stroke="#0F1D4E" stroke-width="1.7"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                                <div class="value">
+                                                    <input type="number" value="1">
+                                                    <div class="number tsb">1 </div>
+                                                    <p class="tm">Bathroom </p>
+                                                </div>
+                                                <button class='increase' type="button"><svg width="16" height="16"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2.5 8H8M8 8H13.5M8 8V2.5M8 8V13.5" stroke="#0F1D4E"
+                                                            stroke-width="1.7" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p>*Other standard areas of the home are included by default</p>
+                                    </div>
+
+                                    <div class="foots">
+                                        <p>How large is the property?</p>
+
+                                        <label for="sqrt-foots" class="container error-class">
+                                            <input type="text" class='error-class' data-input-type="number" value="0" id="sqrt-foots">
+                                            <div class="unit">sqft</div>
+                                        </label>
+                                    </div>
+                                </section>
+
+                            </div>
+                            <div class="full-form__block">
+                                <h4>What frequency are you looking for?</h4>
+                                <section class="form-frequency">
+                                    <label for="oneTime">
+                                        <input type="radio" name="frequecy" id="oneTime" checked>
+                                        <p>One time</p>
+                                    </label>
+                                    <label for="weekly">
+                                        <input type="radio" name="frequecy" id="weekly">
+                                        <p>Weekly</p>
+                                    </label>
+                                    <label for="every2weeks">
+                                        <input type="radio" name="frequecy" id="every2weeks">
+                                        <p>Every 2 weeks</p>
+                                    </label>
+                                    <label for="monthly">
+                                        <input type="radio" name="frequecy" id="monthly">
+                                        <p>Monthly</p>
+                                    </label>
+                                </section>
+                            </div>
+
+                            <div class="full-form__block">
+                                <h4>What frequency are you looking for?</h4>
+                                <section class="form-calendar">
+                                    <div class='dropdown-box-calendar'>
+                                        <button type="button" class='dropdown-container'>
+                                            <div class="name">Date</div>
+                                            <div class="fake-input first">
+                                                <div class="text">Select an option</div>
+                                                <div class="icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M13 5.81171C13 5.73263 12.9664 5.65171 12.9013 5.59103C12.771 5.46966 12.5577 5.46966 12.4274 5.59103L7.96693 9.74513L3.57163 5.65171C3.44131 5.53034 3.22806 5.53034 3.09774 5.65171C2.96742 5.77308 2.96742 5.97168 3.09774 6.09305L7.72998 10.409C7.8603 10.5303 8.07355 10.5303 8.20387 10.409L12.9013 6.0342C12.9684 5.97168 13 5.89262 13 5.81171Z"
+                                                            fill="#0F1D4E" stroke="#0F1D4E" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="lastCleaning" placeholder="Select an date"
+                                                required class='error-class'>
+                                        </button>
+                                        <p class="error" style="display: none;">*Error</p>
+
+                                        <div class="dropdown__body" style="display: none;">
+                                            <div id="calendar"></div>
+                                            <div class="calendar-actions">
+                                                <button type="button" class="btn cancel-btn">Cancel</button>
+                                                <button type="button" class="btn confirm-btn">Choose date</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <div class="full-form__block">
+                                <h4>When was the property last professionally cleaned??</h4>
+                                <section class="form-dropdown">
+
+                                    <div class='dropdown-box'>
+                                        <button type="button" class='dropdown-container'>
+                                            <div class="name">Last cleaning</div>
+                                            <div class="fake-input first">
+                                                <div class="text">Select an option</div>
+                                                <div class="icon"><svg width="16" height="16" viewBox="0 0 16 16"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M13 5.81171C13 5.73263 12.9664 5.65171 12.9013 5.59103C12.771 5.46966 12.5577 5.46966 12.4274 5.59103L7.96693 9.74513L3.57163 5.65171C3.44131 5.53034 3.22806 5.53034 3.09774 5.65171C2.96742 5.77308 2.96742 5.97168 3.09774 6.09305L7.72998 10.409C7.8603 10.5303 8.07355 10.5303 8.20387 10.409L12.9013 6.0342C12.9684 5.97168 13 5.89262 13 5.81171Z"
+                                                            fill="#0F1D4E" stroke="#0F1D4E" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="lastCleaning" placeholder="Select an option"
+                                                required class='error-class'> 
+                                        </button>
+                                        <p class="error" style="display: none;">*Error</p>
+
+                                        <div class="dropdown__body" style="display: none;">
+                                            <button type="button" data-target="Residential">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Residential</div>
+                                            </button>
+                                            <button type="button" data-target="Move-in & Move-out">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Move-in & Move-out</div>
+                                            </button>
+                                            <button type="button" data-target="Commercial">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Commercial</div>
+                                            </button>
+                                            <button type="button" data-target="Post-construction">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Post-construction</div>
+                                            </button>
+                                            <button type="button" data-target="Carpet">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Carpet</div>
+                                            </button>
+                                            <button type="button" data-target="Airbnb">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Airbnb</div>
+                                            </button>
+                                            <button type="button" data-target="Exterior">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                        fill="#0F1D4E" />
+                                                </svg>
+
+                                                <div class="name">Exterior</div>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </section>
+                            </div>
+
+
+                            <div class="full-form__block">
+                                <h4>Extra services</h4>
+                                <section class="form-extra-serivices">
+
+
+
+
+
+
+                                    <div class="box">
+                                        <label for="eco">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='eco'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Eco-Friendly Cleaning </div>
+
+                                        </label>
+                                        <div class="tooltip tippy"
+                                            data-content-tippy="Eco-friendly products that are tough on dirt but safe for your home, health, and the planet."
+                                            data-popup-id="eco" data-popup-title="Eco-Friendly Cleaning ">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="basement">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='basement'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Basement</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="basement" data-popup-title="Basement">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="ironing">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='ironing'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Ironing Services</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="ironing" data-popup-title="Ironing Services">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="spot">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='spot'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Spot cleaning of walls</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="spot" data-popup-title="Spot cleaning of walls">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="space">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='space'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Space Organization</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="space" data-popup-title="Space Organization">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="interior">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='interior'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Interior windows</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="interior" data-popup-title="Interior windows">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="blind">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='blind'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Blind Cleaning</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="blind" data-popup-title="Blind Cleaning">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="wall">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='wall'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Wall washing</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="wall" data-popup-title="Wall washing">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="blinds">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='blinds'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Blinds</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="blinds" data-popup-title="Blinds">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <label for="sweeping">
+                                            <div class='checkbox__custom__ui'>
+                                                <input type="checkbox" id='sweeping'>
+                                                <div class="checkbox-custom">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+
+                                                </div>
+                                            </div>
+                                            <div class="text">Sweeping balcony/garage</div>
+
+                                        </label>
+                                        <div class="tooltip tippy" data-content-tippy="Some text for example - apple "
+                                            data-popup-id="sweeping" data-popup-title="Sweeping balcony/garage">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+
+                            <div class="full-form__block submit-block">
+                                <h4>Personal information</h4>
+
+                                <div class="grid">
+
+                                    <div class="col">
+
+                                        <section class="personal-info">
+                                            <div class='input__box span-2'>
+                                                <label for="example-1" class='input-container'>
+                                                    <div class="name">Name</div>
+                                                    <input type="text" id="example-1" placeholder="type your Name"
+                                                        data-input-type='text' required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+
+                                            <div class='input__box '>
+                                                <label for="example-2" class='input-container'>
+                                                    <div class="name">Email</div>
+                                                    <input type="text" id="example-2" placeholder="type your Email"
+                                                        data-input-type='email' required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='input__box '>
+                                                <label for="example-3" class='input-container'>
+                                                    <div class="name">Phone</div>
+                                                    <input type="text" id="example-3" placeholder="type your Phone"
+                                                        data-input-type='phone' required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='input__box span-2'>
+                                                <label for="example-4" class='input-container'>
+                                                    <div class="name">Address line </div>
+                                                    <input type="text" id="example-4"
+                                                        placeholder="type your Address line " required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='input__box span-2'>
+                                                <label for="example-5" class='input-container'>
+                                                    <div class="name">Address details (optional)</div>
+                                                    <input type="text" id="example-5"
+                                                        placeholder="type your Address details (optional)" class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='input__box span-2'>
+                                                <label for="example-6" class='input-container'>
+                                                    <div class="name">City</div>
+                                                    <input type="text" id="example-6" placeholder="type your City"
+                                                        required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+
+                                            <div class='input__box '>
+                                                <label for="example-7" class='input-container'>
+                                                    <div class="name">State</div>
+                                                    <input type="text" id="example-7" placeholder="type your State"
+                                                        required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='input__box '>
+                                                <label for="example-8" class='input-container'>
+                                                    <div class="name">Postal code</div>
+                                                    <input type="text" id="example-8"
+                                                        placeholder="type your Postal code" required class='error-class'>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+                                            <div class='textarea span-2'>
+                                                <label class='input-container'>
+                                                    <div class="name">Message</div>
+                                                    <textarea type="text" placeholder="type your Message" cols="1"
+                                                        rows="1" data-input-type='' required></textarea>
+                                                </label>
+                                                <p class="error" style="display: none;">*Error</p>
+                                            </div>
+
+
+                                        </section>
+
+                                        <div class="submit-container">
+                                            <label class="terms">
+                                                <div class='checkbox__custom__ui error-class'>
+                                                    <input type="checkbox" class='error-class'>
+                                                    <div class="checkbox-custom error-class">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                                fill="#0F1D4E" />
+                                                        </svg>
+
+                                                    </div>
+                                                </div>
+                                                <p>I agree that my personal data will be used for the purpose of
+                                                    processing your order and for
+                                                    other
+                                                    purposes described in our privacy policy.</p>
+                                            </label>
+
+                                            <button class='solid-link 
+     solid-link--large 
+     btn'>
+                                                <div class="text tsb">Book now</div>
+
+                                                <div class="icon"><svg viewBox="0 0 18 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                                            fill="#0F1D4E" />
+                                                    </svg>
+                                                </div>
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </form>
+                    </section>
+                </div>
+                <div class="right">
+                    <section class="big-form-sticky">
+
+                        <div class="content">
+                            <h4>Order summary</h4>
+
+                            <div class="tooltip">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8 1.5C6.71442 1.5 5.45772 1.88122 4.3888 2.59545C3.31988 3.30968 2.48676 4.32484 1.99479 5.51256C1.50282 6.70028 1.37409 8.00721 1.6249 9.26809C1.8757 10.529 2.49477 11.6872 3.40381 12.5962C4.31285 13.5052 5.47104 14.1243 6.73192 14.3751C7.99279 14.6259 9.29973 14.4972 10.4874 14.0052C11.6752 13.5132 12.6903 12.6801 13.4046 11.6112C14.1188 10.5423 14.5 9.28558 14.5 8C14.4982 6.27665 13.8128 4.62441 12.5942 3.40582C11.3756 2.18722 9.72335 1.50182 8 1.5ZM7.75 4.5C7.89834 4.5 8.04334 4.54399 8.16668 4.6264C8.29002 4.70881 8.38615 4.82594 8.44291 4.96299C8.49968 5.10003 8.51453 5.25083 8.48559 5.39632C8.45665 5.5418 8.38522 5.67544 8.28033 5.78033C8.17544 5.88522 8.04181 5.95665 7.89632 5.98559C7.75083 6.01453 7.60003 5.99968 7.46299 5.94291C7.32595 5.88614 7.20881 5.79001 7.1264 5.66668C7.04399 5.54334 7 5.39834 7 5.25C7 5.05109 7.07902 4.86032 7.21967 4.71967C7.36032 4.57902 7.55109 4.5 7.75 4.5ZM8.5 11.5C8.23479 11.5 7.98043 11.3946 7.7929 11.2071C7.60536 11.0196 7.5 10.7652 7.5 10.5V8C7.36739 8 7.24022 7.94732 7.14645 7.85355C7.05268 7.75979 7 7.63261 7 7.5C7 7.36739 7.05268 7.24021 7.14645 7.14645C7.24022 7.05268 7.36739 7 7.5 7C7.76522 7 8.01957 7.10536 8.20711 7.29289C8.39465 7.48043 8.5 7.73478 8.5 8V10.5C8.63261 10.5 8.75979 10.5527 8.85356 10.6464C8.94732 10.7402 9 10.8674 9 11C9 11.1326 8.94732 11.2598 8.85356 11.3536C8.75979 11.4473 8.63261 11.5 8.5 11.5Z"
+                                        fill="#0F1D4E" />
+                                </svg>
+
+                                <p>Our cleaners come fully equipped with all the necessary cleaning products and tools.
+                                </p>
+                            </div>
+
+                            <div class="overflow">
+                                <div class="block">
+                                    <p class="td">Your order</p>
+                                    <p class='tsb'>Residential cleaning with 2 bedrooms, 1 bathroom, kitchen, and
+                                        hallway</p>
+                                </div>
+                                <div class="block">
+                                    <p class="td">Cleaning type</p>
+                                    <p class='tsb'>Regular</p>
+                                </div>
+                                <div class="block">
+                                    <p class="td">Extra services</p>
+                                    <p class='tsb'>500 square feet, Eco-friendly cleaning, Ironing services</p>
+                                </div>
+                                <div class="block">
+                                    <p class="td">Date</p>
+                                    <p class='tsb'>Wednesday, 1th July</p>
+                                </div>
+                                <div class="block">
+                                    <p class="td">frequency</p>
+                                    <p class='tsb'>Every 2 weeks</p>
+                                </div>
+                            </div>
+
+
+                            <div class="promo__container">
+                                <label class="promo" for="inputPromo">
+                                    <div class="icon">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="16" height="16" rx="8" fill="#68EAA0" />
+                                            <path
+                                                d="M11.8395 6.0181C11.9436 5.9048 12.0013 5.75305 12 5.59553C11.9987 5.43802 11.9385 5.28734 11.8325 5.17596C11.7265 5.06457 11.583 5.00139 11.4331 5.00002C11.2832 4.99865 11.1387 5.05921 11.0309 5.16864L6.85628 9.55412L4.96914 7.57164C4.86129 7.46221 4.71683 7.40166 4.56689 7.40303C4.41695 7.4044 4.27352 7.46758 4.16749 7.57896C4.06147 7.69034 4.00132 7.84102 4.00002 7.99854C3.99872 8.15605 4.05636 8.3078 4.16053 8.4211L6.44797 10.8241C6.55521 10.9367 6.70064 11 6.85228 11C7.00391 11 7.14934 10.9367 7.25658 10.8241L11.8315 6.0181H11.8395Z"
+                                                fill="#0F1D4E" />
+                                        </svg>
+
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="16" height="16" rx="8" fill="#FF3333" />
+                                            <path
+                                                d="M5.17157 4.82843L8 7.65685M8 7.65685L10.8284 10.4853M8 7.65685L10.8284 4.82843M8 7.65685L5.17157 10.4853"
+                                                stroke="white" stroke-width="1.3" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+
+                                    </div>
+                                    <input id="inputPromo" type="text" placeholder="Promo-code (optional)">
+                                    <button class='apply' disabled type="button">Apply</button>
+
+                                    <div class="answer">
+                                        <div class="block">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.52667 13.9993L2 7.47266V8.80599C2 9.15932 2.14 9.49932 2.39333 9.74599L7.58667 14.9393C8.10667 15.4593 8.95333 15.4593 9.47333 14.9393L13.6133 10.7993C14.1333 10.2793 14.1333 9.43266 13.6133 8.91266L8.52667 13.9993Z"
+                                                    fill="#0F1D4E" />
+                                                <path
+                                                    d="M7.58667 11.6067C8.10667 12.1267 8.95333 12.1267 9.47333 11.6067L13.6133 7.46667C14.1333 6.94667 14.1333 6.1 13.6133 5.58L8.42 0.386667C8.16676 0.139535 7.82717 0.000830218 7.47333 0L3.33333 0C2.6 0 2 0.6 2 1.33333V5.47333C2 5.82667 2.14 6.16667 2.39333 6.41333L7.58667 11.6067ZM4.83333 2C5.05435 2 5.26631 2.0878 5.42259 2.24408C5.57887 2.40036 5.66667 2.61232 5.66667 2.83333C5.66667 3.05435 5.57887 3.26631 5.42259 3.42259C5.26631 3.57887 5.05435 3.66667 4.83333 3.66667C4.61232 3.66667 4.40036 3.57887 4.24408 3.42259C4.0878 3.26631 4 3.05435 4 2.83333C4 2.61232 4.0878 2.40036 4.24408 2.24408C4.40036 2.0878 4.61232 2 4.83333 2Z"
+                                                    fill="#0F1D4E" />
+                                            </svg>
+
+                                            <p class="tsb">FRESH30</p>
+                                            <p class='color'>You'll receive a personal discount</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <div class="error-message" style="display: none;">promo-code has expired</div>
+
+                            </div>
+                            <button class='solid-link 
+     solid-link--large 
+     submit'>
+                                <div class="text tsb">Book now</div>
+
+                                <div class="icon"><svg viewBox="0 0 18 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75L1 6L1 5.25ZM17.5303 6.53033C17.8232 6.23744 17.8232 5.76256 17.5303 5.46967L12.7574 0.6967C12.4645 0.403807 11.9896 0.403807 11.6967 0.6967C11.4038 0.989593 11.4038 1.46447 11.6967 1.75736L15.9393 6L11.6967 10.2426C11.4038 10.5355 11.4038 11.0104 11.6967 11.3033C11.9896 11.5962 12.4645 11.5962 12.7574 11.3033L17.5303 6.53033ZM1 6L1 6.75L17 6.75L17 6L17 5.25L1 5.25L1 6Z"
+                                            fill="#0F1D4E" />
+                                    </svg>
+                                </div>
+
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- JQuery InputMask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
+    <!-- Simple Bar -->
+    <!-- <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script> -->
+
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+
+    <!-- plyr - video player -->
+    <script src="https://cdn.plyr.io/3.8.3/plyr.polyfilled.js"></script>
+
+    <!-- JQuery Validate -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+    <!-- flatpicker -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- tippy -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init()</script>
+
+    <!-- wavesurfer audio player -->
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+
+    <!-- main-js -->
+    <script src="./js/index.js" defer></script>
+</body>
+
+</html>
