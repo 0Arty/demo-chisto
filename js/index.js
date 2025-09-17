@@ -252,6 +252,11 @@ APP.heroHomepageSlider = () => {
         spaceBetween: 0,
         loop: true,
         speed: 600,
+        effect: "fade",
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.heroHomePageSLider-pagination',
             clickable: true,
@@ -279,7 +284,7 @@ APP.drawSVGPlugin = () => {
 }
 
 APP.gsapInit = () => {
-    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, SplitText);
 }
 
 APP.showreelsSlider = () => {
@@ -323,7 +328,7 @@ APP.showreelsPlyr = () => {
     $('.initVideo').each(function (id, el) {
         const player = new Plyr(el, {
             controls: ['play', 'progress'],
-            iconUrl: '../assets/utils/plyr.svg'
+            iconUrl: 'assets/utils/plyr.svg'
         });
         players.push(player);
 
@@ -1071,7 +1076,7 @@ APP.bigForm = {
                     arrow: true,
                     placement: 'top',
                     interactive: true,
-                    trigger: 'click',
+                    // trigger: 'click',
                     animation: 'scale',
                     zIndex: 10,
                     offset: [42, 5.5]
@@ -1557,7 +1562,7 @@ APP.audio = () => {
         barGap: 2,
     })
 
-    wavesurfer.load('/assets/audio/audio.mp3')
+    wavesurfer.load('assets/audio/audio.mp3')
     wavesurfer.on('error', (err) => {
         console.error('Audio loading error:', err)
     })
@@ -1652,8 +1657,8 @@ APP.gsapIndexServices = () => {
     const images = gsap.utils.toArray(".images__conainer .image");
     const blocks = gsap.utils.toArray(".text__container .block");
 
-    if(images.length <= 0 && blocks.length <= 0 ){
-        console.log('false:', )
+    if (images.length <= 0 && blocks.length <= 0) {
+        console.log('false:',)
         return
     }
 
@@ -1704,6 +1709,7 @@ APP.botAnimation = {
     svg: null,
     messages: null,
     timeLine: null,
+    removeTimeLine: null,
     scrollTrigger: null,
 
     setNodes: function () {
@@ -1716,40 +1722,50 @@ APP.botAnimation = {
         this.timeLine && this.timeLine.kill()
         this.timeLine = gsap.timeline()
 
-        gsap.set(this.container, {display: 'flex'})
+        gsap.set(this.container, { display: 'flex' })
+        const that = this
+        if (!this.scrollTrigger) {
+            this.scrollTrigger = ScrollTrigger.create({
+                trigger: ".homepage__hero",
+                start: "top+=10 bottom",             // верх секції доторкається до верху вікна
+                end: "bottom bottom-=300",            // низ секції доторкається до верху вікна
+                toggleClass: { targets: ".cleaning-bot", className: "white" },
 
+            })
+        }
+        ScrollTrigger.create({
+            trigger: "[data-hide-cleaning-bot]",
+            start: "bottom bottom", // коли низ секції торкається низу viewport
+            onEnter: () => this.removeAnimation(),
+
+        })
         // SVG
         this.timeLine.fromTo(
             this.svg,
-            {opacity: 0},
-            {opacity: 1, duration: 0.4}
+            { opacity: 0 },
+            { opacity: 1, duration: 0.4 }
         )
 
         // Повідомлення
         this.messages.each((i, el) => {
             this.timeLine.fromTo(
                 el,
-                {display: "none", opacity: 0, y: 20, scale: 0.5},
-                {display: "block", opacity: 1, y: 0, scale: 1, duration: 0.4},
+                { display: "none", opacity: 0, y: 20, scale: 0.5 },
+                { display: "block", opacity: 1, y: 0, scale: 1, duration: 0.4 },
                 "+=" + (i === 0 ? 0.2 : 0.7)
             )
         })
 
-        // ScrollTrigger для білого класу
-        if (!this.scrollTrigger) {
-            this.scrollTrigger = ScrollTrigger.create({
-                trigger: ".homepage__hero",
-                start: "top bottom", 
-                end: "bottom top",    
-                onEnter: () => this.container.addClass("white"),
-                onEnterBack: () => this.container.addClass("white"),
-                onLeave: () => this.container.removeClass("white"),
-                onLeaveBack: () => this.container.removeClass("white"),
-            })
-        }
+
     },
 
     removeAnimation: function () {
+        if (this.removeTimeLine) {
+            this.removeTimeLine.kill()
+            this.removeTimeLine = null
+        }
+
+        // Кіл всіх попередніх анімацій
         if (this.timeLine) {
             this.timeLine.kill()
             this.timeLine = null
@@ -1760,10 +1776,23 @@ APP.botAnimation = {
             this.scrollTrigger = null
         }
 
-        gsap.set(this.messages, {display: "none", opacity: 0, y: 0, scale: 1})
-        gsap.set(this.svg, {opacity: 0})
-        gsap.set(this.container, {display: 'none'})
-        this.container.removeClass('white')
+        // Створюємо анімацію приховування контейнера
+        this.removeTimeLine = gsap.timeline({
+            onComplete: () => {
+                gsap.set(this.messages, { display: "none", opacity: 0, y: 0, scale: 1 })
+                gsap.set(this.svg, { opacity: 0 })
+                gsap.set(this.container, { display: 'none', scale: 1, opacity: 1 })
+                this.container.removeClass('white')
+                this.removeTimeLine = null
+            }
+        })
+
+        this.removeTimeLine.to(this.container, {
+            scale: 0,
+            opacity: 0.3,
+            duration: 0.5,
+            ease: "power2.inOut"
+        })
     },
 
     checkWindow: function () {
@@ -1782,9 +1811,456 @@ APP.botAnimation = {
         }, 300)
 
         this.setNodes()
-        this.removeAnimation()
         this.checkWindow()
         window.addEventListener('resize', handleResize)
+    }
+}
+APP.gsapPricingBadges = () => {
+    const tl = gsap.timeline();
+
+    tl.to(".price-hero .badge-6", {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+    })
+        .to(".price-hero .badge-2", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        })
+        .to(".price-hero .badge-3", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        })
+        .to(".price-hero .badge-4", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        })
+        .to(".price-hero .badge-5", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        })
+        .to(".price-hero .badge-1", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        })
+}
+
+APP.splitChars = () => {
+    let split = new SplitText(".about-us__content .description", { type: "words" })
+
+    gsap.from(split.words, {
+        scrollTrigger: {
+            trigger: ".about-us",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+            pinSpacing: true,
+        },
+        opacity: 0.32,
+        stagger: 0.02,
+        duration: 1
+    })
+}
+
+
+APP.aboutPageReliabilityAnimation = {
+
+    time: function () {
+        const el = $('.card.time');
+        const svgRect = el.find('svg rect');
+        const over = el.find('.over');
+        const h1 = el.find('h1');
+        const h = el.find('.h');
+
+        // Get the initial number from h1 text
+        const endValue = parseInt(h1.text().replace(/[^0-9]/g, '')) || 9000;
+
+        // Create a timeline with ScrollTrigger
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        const counter = { value: 0 };
+
+        // Add animations to the timeline
+        tl
+            .fromTo(el,
+                { opacity: 0, x: -100 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.4,
+                }
+            )
+            .fromTo(svgRect,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1
+                }
+            )
+            .fromTo(over,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '-=0.5' // Overlap with previous animation
+            )
+            .fromTo(h1,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                }
+            )
+            .fromTo(counter,
+                { value: 0 },
+                {
+                    value: endValue,
+                    duration: 1.5,
+                    ease: 'power1.out',
+                    onUpdate: function () {
+                        h1.text(Math.round(counter.value));
+                    }
+                }
+            )
+            .fromTo(h,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            )
+            .fromTo(el.find('.text p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+
+    },
+    ft: function () {
+        const el = $('.card.ft');
+        const relative = el.find('.relative h1')
+        const value = el.find('.relative .absolute h4');
+
+        const endValue = parseInt(relative.text().replace(/[^0-9]/g, '')) || 9000;
+
+        // Create a timeline with ScrollTrigger
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        const counter = { value: 0 };
+
+        // Add animations to the timeline
+        tl
+            .fromTo(el,
+                { opacity: 0, scale: 0.5 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4,
+                }
+            )
+            .fromTo(relative,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                }
+            )
+            .fromTo(counter,
+                { value: 0 },
+                {
+                    value: endValue,
+                    duration: 1.5,
+                    ease: 'power1.out',
+                    onUpdate: function () {
+                        relative.text(Math.round(counter.value));
+                    }
+                }
+            )
+            .fromTo(value,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            )
+            .fromTo(el.find('.text p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+
+    },
+    stars: function () {
+        const el = $('.card.stars');
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        const counter = { value: 0 };
+
+        // Add animations to the timeline
+        tl
+            .fromTo(
+                el,
+                {
+                    opacity: 0,
+                    y: 100,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4
+                }
+            )
+            .fromTo(
+                el.find('.icon'),
+                {
+                    scale: 0
+                },
+                {
+                    scale: 1
+                }
+            )
+            .fromTo(
+                el.find('.relative h1'),
+                { opacity: 0, scale: 0.5 },
+                { opacity: 1, scale: 1, duration: 0.2 },
+            )
+
+            .fromTo(
+                el.find('.relative h4'),
+                { opacity: 0 },
+                { opacity: 1, duration: 0.2 },
+            )
+            .fromTo(el.find('.text p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+
+    },
+    returns: function () {
+        const el = $('.card.returns');
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        const counter = { value: 0 };
+
+        // Add animations to the timeline
+        tl
+            .fromTo(
+                el,
+                {
+                    opacity: 0,
+                    x: 100,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.4
+                }
+            )
+            .fromTo(
+                el.find('.relative h1'),
+                { opacity: 0, scale: 0.5 },
+                { opacity: 1, scale: 1, duration: 0.2 },
+            )
+
+            .fromTo(
+                el.find('.relative h4'),
+                { opacity: 0 },
+                { opacity: 1, duration: 0.2 },
+            )
+            .fromTo(el.find('.text p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+
+    },
+    allDay: function () {
+        const el = $('.big-card.all-day');
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        const itemOrder = [
+            '.item-1',
+            '.item-2',
+            '.item-3',
+            '.item-4',
+            '.item-5',
+            '.item-6',
+            '.item-7'
+        ].map(selector => {
+            const element = el.find(selector).get(0);
+            return element ? { element, opacity: parseFloat($(element).css('opacity')) || 1 } : null;
+        }).filter(Boolean);
+
+        tl
+
+            .fromTo(
+                el,
+                { opacity: 0, y: 100, },
+                {
+                    opacity: 1, y: 0, duration: 0.4
+                }
+            )
+            .fromTo(
+                itemOrder.map(item => item.element),
+                { opacity: 0 },
+                {
+                    opacity: function (index) {
+                        return itemOrder[index].opacity;
+                    },
+                    duration: 1.2,
+                    stagger: 0.1
+                }
+            )
+            .fromTo(el.find('.title h4'),
+                { opacity: 0, },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4
+                },
+                '-=0.2'
+            )
+            .fromTo(el.find('.title h1'),
+                { opacity: 0, scale: 0.5 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4
+                },
+                '+=0.2'
+            )
+            .fromTo(el.find('.text__container p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+
+    },
+    certified: function () {
+        const el = $('.big-card.certified');
+        const path = el.find('.card__content > svg path').last();
+        const leaf = el.find('.card__content > svg path').first();
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        tl
+
+            .fromTo(
+                el,
+                { opacity: 0, y: 100, },
+                {
+                    opacity: 1, y: 0, duration: 0.2
+                }
+            )
+
+            .fromTo(
+                path,
+                { drawSVG: "0%" },
+                {
+                    drawSVG: "100%",
+                    duration: 0.5,
+                    ease: "power3.out",
+                }
+            )
+
+            .fromTo(
+                leaf,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.4 }
+            )
+
+            .fromTo(
+                el.find('.text h4'),
+                {opacity: 0},
+                {opacity: 1},
+            )
+            .fromTo(
+                el.find('.text .stars svg'),
+                {opacity: 0, scale: 0.4},
+                {opacity: 1, scale: 1, duration: 0.3, stagger: 0.1},
+            )
+
+            .fromTo(el.find('> p'),
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5
+                },
+                '+=0.2'
+            );
+    },
+    init: function () {
+        this.time()
+        this.ft()
+        this.stars()
+        this.returns()
+        this.allDay()
+        this.certified()
     }
 }
 
@@ -1837,4 +2313,8 @@ document.addEventListener('DOMContentLoaded', function () {
     APP.cookies.init()
 
     APP.botAnimation.init()
+
+    APP.gsapPricingBadges()
+    APP.splitChars()
+    APP.aboutPageReliabilityAnimation.init()
 });
